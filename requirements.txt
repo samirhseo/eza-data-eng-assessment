@@ -1,0 +1,6 @@
+orjson
+pandas
+docker
+mysql-connector-python
+mysql-client
+sqlalchemy

@@ -1,0 +1,14 @@
+services:
+  mysql:
+    build: ./mysql/
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'interview_database'
+      MYSQL_ROOT_PASSWORD: 'groot'
+    ports:
+      - '33066:33066'
+  python-service:
+    build: ./
+    command: sh -c "sleep 5s ; python3 ./main.py"
+    depends_on:
+      - mysql
