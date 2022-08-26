@@ -28,4 +28,10 @@ This will give you a list of tables in the database, pick a database and enter t
 
 (be sure to remove the '' quotes)
 
+##Table Structure & function
+
+This script will explode the json files in /data/ and write them via dataframe directly into a mysql database.
+
+Many to Many relationship on 'resource_id' field. The tables have been seperated by 'resourceTYPE' so each resource type table can be quickly queried.
+
 
