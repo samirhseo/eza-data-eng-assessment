@@ -1,5 +1,7 @@
 # Readme
 
+## Install
+
 To start, clone the repo into an IDE that supports docker (I've used pycharm) and enter this into your terminal:
 
 >docker-compose up
@@ -28,10 +30,35 @@ This will give you a list of tables in the database, pick a database and enter t
 
 (be sure to remove the '' quotes)
 
-##Table Structure & function
+## Table Structure & function
 
 This script will explode the json files in /data/ and write them via dataframe directly into a mysql database.
 
 Many to Many relationship on 'resource_id' field. The tables have been seperated by 'resourceTYPE' so each resource type table can be quickly queried.
+
+Table names:
+
+-flattened_json_allergyintolerance_table'
+-flattened_json_careplan_table'
+-flattened_json_careteam_table'
+-flattened_json_claim_table'
+-flattened_json_condition_table'
+-flattened_json_device_table'
+-flattened_json_diagnosticreport_table'
+-flattened_json_documentreference_table'
+-flattened_json_encounter_table'
+-flattened_json_explanationofbenefit_table'
+-flattened_json_imagingstudy_table'
+-flattened_json_immunization_table'
+-flattened_json_medication_table'
+-flattened_json_medicationadministration_table'
+-flattened_json_medicationrequest_table'
+-flattened_json_observation_table'
+-flattened_json_patient_table'
+-flattened_json_procedure_table'
+-flattened_json_provenance_table'
+-flattened_json_supplydelivery_table'
+
+
 
 
