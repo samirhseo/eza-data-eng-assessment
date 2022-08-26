@@ -2,7 +2,7 @@
 
 ## Install
 
-To start, clone the repo into an IDE that supports docker (I've used pycharm) and enter this into your terminal:
+To start, clone the repo into an IDE that supports docker (I've used pycharm) and enter this into the terminal in your IDE Environment:
 
 >docker-compose up
 
