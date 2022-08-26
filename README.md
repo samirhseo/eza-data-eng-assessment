@@ -39,24 +39,43 @@ Many to Many relationship on 'resource_id' field. The tables have been seperated
 Table names:
 
 -flattened_json_allergyintolerance_table
+
 -flattened_json_careplan_table
+
 -flattened_json_careteam_table
+
 -flattened_json_claim_table
+
 -flattened_json_condition_table
+
 -flattened_json_device_table
+
 -flattened_json_diagnosticreport_table
+
 -flattened_json_documentreference_table
+
 -flattened_json_encounter_table
+
 -flattened_json_explanationofbenefit_table
+
 -flattened_json_imagingstudy_table
+
 -flattened_json_immunization_table
+
 -flattened_json_medication_table
+
 -flattened_json_medicationadministration_table
+
 -flattened_json_medicationrequest_table
+
 -flattened_json_observation_table
+
 -flattened_json_patient_table
+
 -flattened_json_procedure_table
+
 -flattened_json_provenance_table
+
 -flattened_json_supplydelivery_table
 
 
