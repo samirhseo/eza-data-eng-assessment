@@ -1,4 +1,3 @@
-#TODO README
 
 # If this was a real world application & I had unlimited resources
 # other things I would have done with more time & resources / in a real world scenario:
@@ -19,6 +18,7 @@ import sqlalchemy as sa
 from sqlalchemy import text
 
 
+#function for if database doesn't already exist.
 def create_database(db_name, con):
     con.execute(f'CREATE DATABASE {db_name}')
 
@@ -26,7 +26,7 @@ def create_database(db_name, con):
 
     return db_name
 
-
+#cross join exploded dicts
 def cross_join(left, right):
     new_rows = [] if right else left
     for left_row in left:
@@ -37,7 +37,7 @@ def cross_join(left, right):
             new_rows.append(deepcopy(temp_row))
     return new_rows
 
-
+#flatten nested lists in json
 def flatten_list(data):
     for elem in data:
         if isinstance(elem, list):
@@ -46,6 +46,7 @@ def flatten_list(data):
             yield elem
 
 
+#combine exploded json & lists into a neat dataframe
 def json_to_df(data_in):
     def flatten_data(data, prev_heading=''):
         if isinstance(data, dict):
@@ -62,7 +63,7 @@ def json_to_df(data_in):
 
     return pd.DataFrame(flatten_data(data_in))
 
-
+#combine dataframes by iterating through list of files
 def combine_temp_df():
     df_temp_dict = {}
 
@@ -72,6 +73,7 @@ def combine_temp_df():
 
     for file in os.listdir(directory):
         filename = os.fsdecode(file)
+        
         # here we loop through the files in the directory, turn them into dataframes and append
         # an empty dictionary with those dataframes to be combined.
 
@@ -80,18 +82,20 @@ def combine_temp_df():
         # or a serverless warehouse like bigquery/redshift.
 
         # throws exception if not json
+        
         if filename.endswith(".json"):
             print(filename)
             # re-encode as UTF-8 by default, if character error will throw exception.
             with codecs.open(f"{data_path}{filename}", "r", encoding='UTF-8') as f:
+                
                 # Here we could also stream straight to mysql, but due to time constraints and the complexity of the
                 # json schema for this data we're programmatically generating the tables rather than writing them
                 # with a well-designed relational table structure for streaming.
+                
                 json_data = orjson.loads(f.read())
                 df_temp_dict[filename] = json_to_df(json_data)
 
     # Hence, we're creating this giant dataframe below which slows us down significantly.
-
     combined_df = pd.concat(df_temp_dict.values(), ignore_index=True)
 
     # Example of dropping useless columns.
@@ -128,6 +132,7 @@ def create_sql_engine():
 
     return con
 
+#this function takes our large in memory dataframe & splits it by 'resourceType' into a host of related tables connected by 'resource_id'.
 
 def dataframe_splitter(df):
     user = 'root'
