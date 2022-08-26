@@ -11,13 +11,13 @@ When docker-compose is completed leave the container running, open a separate te
 
 >docker exec -it eza-data-eng-assessment_mysql_1 bash -l
 
-this will open a bash instance. then use the following command to access the mysql server:
+This will open a bash instance. then use the following command to access the mysql server:
 
 >mysql -uroot -pgroot
 > 
 You'll then be able to query the data.
 
-here's a few example queries:
+Here's a few example queries:
 
 >SHOW TABLES
 
