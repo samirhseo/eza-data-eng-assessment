@@ -6,7 +6,7 @@ To start, clone the repo into an IDE that supports docker (I've used pycharm) an
 
 When the docker-compose is completed 
 
-(this can take 10-15mains. Comments on how I would have done this differently under different circumstances can be found in main.py)
+(this can take 10-15mins. Comments on how I would have done this differently under different circumstances can be found in main.py)
 
 leave the container running & open a separate terminal then enter: 
 
